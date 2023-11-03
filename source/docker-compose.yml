@@ -4,12 +4,15 @@ services:
     container_name: home-cloud-api
     build: ./api
     ports:
-      - "8082:8082"
+      - "8000:8000"
     depends_on:
       - db
   db:
     container_name: home-cloud-db
     image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=homecloud
+      - MONGO_INITDB_ROOT_PASSWORD=saTiger123
     ports:
       - "27017:27017"
     volumes:
